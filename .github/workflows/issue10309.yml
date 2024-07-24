@@ -1,0 +1,15 @@
+name: macOS-13 Build
+
+on:
+ push
+
+jobs:
+  build:
+    runs-on: macos-13
+
+    steps:
+    - name: Set up Xcode
+      run: sudo xcode-select -s /Applications/Xcode_15.2.app
+
+    - name: Build project
+      run: xcodebuild -workspace REDacted.xcworkspace -scheme "REDacted" -destination 'platform=iOS Simulator,name=iPhone 15 Pro,OS=latest,arch=x86_64' -configuration Debug test
